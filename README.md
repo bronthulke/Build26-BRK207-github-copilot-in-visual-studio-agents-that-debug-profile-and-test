@@ -1,36 +1,3 @@
-# 🚀 Get Started
-
-**This repo is where attendees go to continue their learning after your session — and your Copilot agent will help you set it up.**
-
-### Step 1: Open your repo
-
-Open this repo in a **Codespace** (click the green **Code** button → **Create a Codespace**) — or clone it locally. Then open **GitHub Copilot Chat**.
-
-### Step 2: Add your content
-
-Give the agent something to work with. Drag files into the Explorer panel — session abstracts, outlines, screenshots, notes — and drop them in one of two places:
-
-| Where to put it | What goes there | Who sees it |
-|---|---|---|
-| **`_remove-before-publish/`** | Internal reference materials (abstracts, outlines, screenshots, planning docs) | **Copilot only** — never published |
-| **`/docs/`, `/src/`, or repo root** | Lab instructions, demo code, sample data, getting-started guides | **Attendees** — published with the repo |
-
-> 💡 Not sure? Start by dropping your session abstract or outline into `_remove-before-publish/`. The agent will figure out what to do with it.
-
-### Step 3: Ask the Agent
-
-Once your content is in the repo, use these three phrases with Copilot to build out your session repo:
-
-| Phrase to use with Copilot | What it does | When to run it |
-|---|---|---|
-| **"Help me get started"** | Sets up session title, description, outcomes, and owners | After you've added your session abstract or outline to the repo |
-| **"Help me refine content"** | Organizes your session content into the repo | Each time you add or update content |
-| **"Help me finalize"** | Final review, cleanup, and publication prep | When you're ready to publish |
-
-> 💡 **These three phrases are just the starting point.** Copilot can do much more — try asking it to brainstorm next steps for attendees, generate code samples, or build out your repo structure.
-
----
-
 <a name="start-building"></a>
 <br>
 <p align="center">
@@ -43,7 +10,7 @@ Once your content is in the repo, use these three phrases with Copilot to build 
 
 ### Session Description
 
-Join this breakout session to explore how GitHub Copilot in Visual Studio helps professional developers debug complex issues, analyze performance bottlenecks, and improve test workflows using agent-powered experiences. You’ll also get a look at upcoming capabilities including modernization, skills, and deeper integration across the development workflow.
+Join this breakout session to explore how GitHub Copilot in Visual Studio helps professional developers debug complex issues, analyze performance bottlenecks, and improve test workflows using agent-powered experiences in the tools they already use every day.
 
 ### 🚀 Getting started
 
@@ -51,26 +18,40 @@ To explore the tools and workflows from this breakout session:
 
 - Download Visual Studio 2026 Insiders from visualstudio.com/insiders
 - Clone this repository
-- Review the breakout overview in [docs/index.md](docs/README.md)
+- Review the breakout overview in [docs/README.md](docs/README.md)
 - Use GitHub Copilot in Visual Studio to explore debugging, profiling, and testing workflows in your own projects
 
 ### 🧠 Learning Outcomes
 
 By the end of this breakout session, you will be able to:
 
-- Understand how GitHub Copilot in Visual Studio can help investigate and fix issues using debugging, profiling, and test workflows
+- Understand how GitHub Copilot in Visual Studio can help investigate and fix issues using debugging, profiling, and testing workflows
 - Explore how agent-based experiences in Visual Studio support professional developers working in complex C# and C++ codebases
 - Identify upcoming GitHub Copilot capabilities in Visual Studio, including modernization, skills, and deeper tool integration
 
 ### 💬 Keep Learning with Copilot
 
-Try these prompts with GitHub Copilot to explore the topics from this breakout session. Open Copilot Chat in Visual Studio Code (`Ctrl+Alt+I` on Windows/Linux, `Cmd+Shift+I` on Mac), paste a prompt, and see what you learn.
+Try these prompts with GitHub Copilot to explore the topics from this breakout session. Open Copilot Chat in Visual Studio Code (`Ctrl+Alt+I` on Windows/Linux, `Cmd+Shift+I` on Mac), paste a prompt, and continue the conversation based on your own projects and workflows.
 
 Use these as a starting point — or write your own!
 
-<!-- Prompts will be tailored to this session's content during repo setup. -->
+1. Investigate debugging workflows:
 
-> *Prompts coming soon — check back after the session content is finalized.*
+```text
+Help me understand how GitHub Copilot in Visual Studio can assist during debugging. Walk me through a realistic example of investigating a failing C# application, identifying likely root causes, and deciding what to try next.
+```
+
+2. Explore profiling and performance analysis:
+
+```text
+Using the Microsoft Learn MCP Server, find the latest documentation related to profiling and performance analysis in Visual Studio, then summarize how GitHub Copilot could help me investigate performance bottlenecks in a .NET application.
+```
+
+3. Improve testing workflows:
+
+```text
+Show me how GitHub Copilot in Visual Studio can help me understand a failing test, explain likely causes, and suggest follow-up fixes and validation steps for a C++ or .NET project.
+```
 
 ### 💻 Technologies Used
 
@@ -93,7 +74,7 @@ The Microsoft Learn MCP Server gives your AI agent direct access to Microsoft's 
 
 **Visual Studio Code** — One click installation: 
 
-[![Install in Visual Studio Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoftdocs.mcp)
+[![Install in Visual Studio Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=ms-learn&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.learn.microsoft.com%2Fmcp%22%7D)
 
 **GitHub Copilot CLI** — Run this to install the Learn MCP Server as a plugin:
 ```
