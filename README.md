@@ -39,11 +39,11 @@ Once your content is in the repo, use these three phrases with Copilot to build 
 
 # [Microsoft Build 2026](https://build.microsoft.com)
 
-## 🔥 BRKXXX: SESSION TITLE
+## 🔥 BRK207: GitHub Copilot in Visual Studio: Agents That Debug, Profile, and Test
 
 ### Session Description
 
-*Add Session Description*
+*Every IDE has agentic code generation now, but Visual Studio goes further with built-in agents that tackle what code generation can't. In this demo-heavy session, you'll see agents root-cause bugs using live runtime behavior, pinpoint performance bottlenecks and recommend targeted fixes, and build test coverage to catch regressions before they ship. These aren't just code-writing agents. They help enterprise C#, .NET, and C++ developers improve code quality with expert-level diagnostics.*
 
 ### 🏫 Getting started in a guided session
 
@@ -79,9 +79,8 @@ Use these as a starting point — or write your own!
 
 ### 💻 Technologies Used
 
-1. <!-- technology 1 -->
-1. <!-- technology 2 -->
-1. <!-- technology 3 -->
+1. Visual Studio 2026
+1. GitHub Copilot
 
 ### 📚 Resources and Next Steps
 
