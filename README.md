@@ -27,7 +27,7 @@ Once your content is in the repo, use these three phrases with Copilot to build 
 | **"Help me refine content"** | Organizes your session content into the repo | Each time you add or update content |
 | **"Help me finalize"** | Final review, cleanup, and publication prep | When you're ready to publish |
 
-> 💡 **These three phrases are just the starting point.** Copilot can do much more — try asking it to brainstorm next steps for attendees, generate code samples, or build out your repo structure. Don't be afraid to put it in plan mode and ask for what you need.
+> 💡 **These three phrases are just the starting point.** Copilot can do much more — try asking it to brainstorm next steps for attendees, generate code samples, or build out your repo structure.
 
 ---
 
@@ -43,33 +43,27 @@ Once your content is in the repo, use these three phrases with Copilot to build 
 
 ### Session Description
 
-*Every IDE has agentic code generation now, but Visual Studio goes further with built-in agents that tackle what code generation can't. In this demo-heavy session, you'll see agents root-cause bugs using live runtime behavior, pinpoint performance bottlenecks and recommend targeted fixes, and build test coverage to catch regressions before they ship. These aren't just code-writing agents. They help enterprise C#, .NET, and C++ developers improve code quality with expert-level diagnostics.*
+Join this breakout session to explore how GitHub Copilot in Visual Studio helps professional developers debug complex issues, analyze performance bottlenecks, and improve test workflows using agent-powered experiences. You’ll also get a look at upcoming capabilities including modernization, skills, and deeper integration across the development workflow.
 
-### 🏫 Getting started in a guided session
+### 🚀 Getting started
 
-To get started in a guided lab session:
-- <!-- step 1 -->
-- <!-- step 2 -->
-- <!-- step 3 -->
+To explore the tools and workflows from this breakout session:
 
-### 🏠 Getting started in your own environment
-
-If you're following these steps at your own pace:
+- Download Visual Studio 2026 Insiders from visualstudio.com/insiders
 - Clone this repository
-- Set up your development environment
-- <!-- step 3 -->
+- Open the included samples and explore GitHub Copilot features for debugging, profiling, and testing
 
 ### 🧠 Learning Outcomes
 
-By the end of this session, you will be able to:
+By the end of this breakout session, you will be able to:
 
-- <!-- outcome 1 -->
-- <!-- outcome 2 -->
-- <!-- outcome 3 -->
+- Understand how GitHub Copilot in Visual Studio can help investigate and fix issues using debugging, profiling, and test workflows
+- Explore how agent-based experiences in Visual Studio support professional developers working in complex C# and C++ codebases
+- Identify upcoming GitHub Copilot capabilities in Visual Studio, including modernization, skills, and deeper tool integration
 
 ### 💬 Keep Learning with Copilot
 
-Try these prompts with GitHub Copilot to explore the topics from this session. Open Copilot Chat in VS Code (`Ctrl+Alt+I` on Windows/Linux, `Cmd+Shift+I` on Mac), paste a prompt, and see what you learn. Try connecting the [Microsoft Learn MCP Server](#-microsoft-learn-mcp-server) for the latest official documentation.
+Try these prompts with GitHub Copilot to explore the topics from this breakout session. Open Copilot Chat in Visual Studio Code (`Ctrl+Alt+I` on Windows/Linux, `Cmd+Shift+I` on Mac), paste a prompt, and see what you learn.
 
 Use these as a starting point — or write your own!
 
@@ -79,8 +73,11 @@ Use these as a starting point — or write your own!
 
 ### 💻 Technologies Used
 
-1. Visual Studio 2026
+1. Visual Studio 2026 Insiders
 1. GitHub Copilot
+1. C#
+1. C++
+1. .NET
 
 ### 📚 Resources and Next Steps
 
@@ -91,12 +88,11 @@ Use these as a starting point — or write your own!
 
 ### 🌟 Microsoft Learn MCP Server
 
-The Microsoft Learn MCP Server gives your AI agent direct access to Microsoft's official documentation — grounded, up-to-date answers about the products and services covered in this session.
+The Microsoft Learn MCP Server gives your AI agent direct access to Microsoft's official documentation — grounded, up-to-date answers about the products and services covered in this breakout session.
 
-**VS Code** — One click installation: 
+**Visual Studio Code** — One click installation: 
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoft-learn&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Flearn.microsoft.com%2Fapi%2Fmcp%22%7D)
-
+[![Install in Visual Studio Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoftdocs.mcp)
 
 **GitHub Copilot CLI** — Run this to install the Learn MCP Server as a plugin:
 ```
@@ -107,17 +103,17 @@ For more info, other clients, and to post questions, visit the [Learn MCP Server
 
 ## Content Owners
 
-<!-- TODO: Add yourself as a content owner
-1. Change the src in the image tag to {your github url}.png
-2. Change INSERT NAME HERE to your name
-3. Change the github url in the final href to your url. -->
-
 <table>
 <tr>
-    <td align="center"><a href="http://github.com/yourGitHubHandle">
-        <img src="https://github.com/yourGitHubHandle.png" width="100px;" alt="INSERT NAME HERE"/><br />
-        <sub><b>INSERT NAME HERE</b></sub></a><br />
-            <a href="https://github.com/yourGitHubHandle" title="talk">📢</a>
+    <td align="center"><a href="http://github.com/madskristensen">
+        <img src="https://github.com/madskristensen.png" width="100px;" alt="Mads Kristensen"/><br />
+        <sub><b>Mads Kristensen</b></sub></a><br />
+            <a href="https://github.com/madskristensen" title="talk">📢</a>
+    </td>
+    <td align="center"><a href="http://github.com/karpinsn">
+        <img src="https://github.com/karpinsn.png" width="100px;" alt="Nik Karpinsky"/><br />
+        <sub><b>Nik Karpinsky</b></sub></a><br />
+            <a href="https://github.com/karpinsn" title="talk">📢</a>
     </td>
 </tr></table>
 
