@@ -51,7 +51,8 @@ To explore the tools and workflows from this breakout session:
 
 - Download Visual Studio 2026 Insiders from visualstudio.com/insiders
 - Clone this repository
-- Open the included samples and explore GitHub Copilot features for debugging, profiling, and testing
+- Review the breakout overview in [docs/index.md](docs/index.md)
+- Use GitHub Copilot in Visual Studio to explore debugging, profiling, and testing workflows in your own projects
 
 ### 🧠 Learning Outcomes
 
