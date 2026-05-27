@@ -51,7 +51,7 @@ To explore the tools and workflows from this breakout session:
 
 - Download Visual Studio 2026 Insiders from visualstudio.com/insiders
 - Clone this repository
-- Review the breakout overview in [docs/index.md](docs/index.md)
+- Review the breakout overview in [docs/index.md](docs/README.md)
 - Use GitHub Copilot in Visual Studio to explore debugging, profiling, and testing workflows in your own projects
 
 ### 🧠 Learning Outcomes
