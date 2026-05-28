@@ -10,7 +10,7 @@
 
 ### Session Description
 
-Join this breakout session to explore how GitHub Copilot in Visual Studio helps professional developers debug complex issues, analyze performance bottlenecks, and improve test workflows using agent-powered experiences in the tools they already use every day.
+Join this breakout session to explore how GitHub Copilot in Visual Studio helps professional developers debug complex issues, analyze performance bottlenecks, and improve test workflows using agent-powered experiences. We'll cover real-world scenarios across C# and C++ apps, highlight new capabilities coming to GitHub Copilot in Visual Studio, and show how AI can become a trusted part of your inner-loop development process.
 
 ### 🚀 Getting started
 
@@ -31,20 +31,20 @@ By the end of this breakout session, you will be able to:
 
 ### 💬 Keep Learning with Copilot
 
-Try these prompts with GitHub Copilot to explore the topics from this breakout session. Open Copilot Chat in Visual Studio Code (`Ctrl+Alt+I` on Windows/Linux, `Cmd+Shift+I` on Mac), paste a prompt, and continue the conversation based on your own projects and workflows.
+Try these prompts with GitHub Copilot to explore the topics from this breakout session. Open Copilot Chat in Visual Studio Code (`Ctrl+Alt+I` on Windows/Linux, `Cmd+Shift+I` on Mac), paste a prompt, and see where it takes you.
 
 Use these as a starting point — or write your own!
 
 1. Investigate debugging workflows:
 
 ```text
-Help me understand how GitHub Copilot in Visual Studio can assist during debugging. Walk me through a realistic example of investigating a failing C# application, identifying likely root causes, and deciding what to try next.
+Help me understand how GitHub Copilot in Visual Studio can assist during debugging. Walk me through a realistic example of investigating a failing C# application, identifying likely root causes, and deciding on next diagnostic steps.
 ```
 
 2. Explore profiling and performance analysis:
 
 ```text
-Using the Microsoft Learn MCP Server, find the latest documentation related to profiling and performance analysis in Visual Studio, then summarize how GitHub Copilot could help me investigate performance bottlenecks in a .NET application.
+Using the Microsoft Learn MCP Server, find the latest documentation related to profiling and performance analysis in Visual Studio, then summarize how GitHub Copilot could help me investigate performance problems more efficiently.
 ```
 
 3. Improve testing workflows:
@@ -66,6 +66,10 @@ Show me how GitHub Copilot in Visual Studio can help me understand a failing tes
 | Resource | Description |
 |:---------|:------------|
 | [https://aka.ms/build26-next-steps](https://aka.ms/build26-next-steps) | Explore lab and session repos to further your learning from Microsoft Build |
+| [Download Visual Studio 2026](https://visualstudio.microsoft.com/downloads/?utm_source=build-brk207-next-vs-download-cta&utm_medium=event&utm_campaign=msbuild-2026) | Download the latest Visual Studio 2026 build |
+| [Connect with the team](https://aka.ms/vshub?utm_source=build-brk207-related-vs-hub-cta&utm_medium=event&utm_campaign=msbuild-2026) | Connect with the Visual Studio team and community |
+| [Visual Studio blog](https://devblogs.microsoft.com/visualstudio/?utm_source=build-brk207-related-vs-blog-cta&utm_medium=event&utm_campaign=msbuild-2026) | Read announcements, updates, and engineering stories from the Visual Studio blog |
+| [Get Insiders build](https://visualstudio.microsoft.com/insiders/?utm_source=build-brk207-related-vs-insiders-cta&utm_medium=event&utm_campaign=msbuild-2026) | Get the latest Visual Studio Insiders build |
 
 
 ### 🌟 Microsoft Learn MCP Server
@@ -74,7 +78,7 @@ The Microsoft Learn MCP Server gives your AI agent direct access to Microsoft's 
 
 **Visual Studio Code** — One click installation: 
 
-[![Install in Visual Studio Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=ms-learn&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.learn.microsoft.com%2Fmcp%22%7D)
+[![Install in Visual Studio Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoft.docs.mcp&inputs=%5B%7B%22id%22%3A%22microsoft.docs.mcp.access-token%22%2C%22type%22%3A%22promptString%22%2C%22password%22%3Atrue%2C%22description%22%3A%22Microsoft%20Learn%20Access%20Token%22%2C%22default%22%3A%22%24%7Binput%3Agithub.copilot.chat.mcp.servers.input%7D%22%7D%5D)
 
 **GitHub Copilot CLI** — Run this to install the Learn MCP Server as a plugin:
 ```
