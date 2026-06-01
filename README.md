@@ -66,6 +66,7 @@ Show me how GitHub Copilot in Visual Studio can help me understand a failing tes
 | Resource | Description |
 |:---------|:------------|
 | [https://aka.ms/build26-next-steps](https://aka.ms/build26-next-steps) | Explore lab and session repos to further your learning from Microsoft Build |
+| [LAB501: From zero to deployed on Azure with AI agents](https://github.com/microsoft/Build26-LAB501-from-zero-to-deployed-on-azure-with-ai-agents) | Related Build 2026 lab content |
 | [Download Visual Studio 2026](https://visualstudio.microsoft.com/downloads/?utm_source=build-brk207-next-vs-download-cta&utm_medium=event&utm_campaign=msbuild-2026) | Download the latest Visual Studio 2026 build |
 | [Connect with the team](https://aka.ms/vshub?utm_source=build-brk207-related-vs-hub-cta&utm_medium=event&utm_campaign=msbuild-2026) | Connect with the Visual Studio team and community |
 | [Visual Studio blog](https://devblogs.microsoft.com/visualstudio/?utm_source=build-brk207-related-vs-blog-cta&utm_medium=event&utm_campaign=msbuild-2026) | Read announcements, updates, and engineering stories from the Visual Studio blog |
