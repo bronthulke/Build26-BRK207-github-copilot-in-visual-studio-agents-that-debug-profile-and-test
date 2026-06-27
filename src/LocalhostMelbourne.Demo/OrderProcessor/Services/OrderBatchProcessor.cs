@@ -16,15 +16,15 @@ public class OrderBatchProcessor
     }
 
     // SCENARIO 1 (DEBUGGING) — BUG:
-    // The loop condition is `orders.Count - 1` instead of `orders.Count`.
-    // Every batch silently drops its last order. With a batch of 1 order, nothing is processed.
+    // The loop condition was `orders.Count - 1` instead of `orders.Count`.
+    // Every batch silently dropped its last order. With a batch of 1 order, nothing is processed.
     // The symptom: total orders processed never equals total orders submitted; the gap grows
     // with the number of batches. Difficult to spot because the logic inside the loop is correct.
     public IReadOnlyList<OrderResult> ProcessBatch(IList<Order> orders)
     {
         var results = new List<OrderResult>();
 
-        for (int i = 0; i < orders.Count - 1; i++)   // BUG: should be orders.Count
+        for (int i = 0; i < orders.Count; i++)
         {
             var result = ProcessSingleOrder(orders[i]);
             results.Add(result);

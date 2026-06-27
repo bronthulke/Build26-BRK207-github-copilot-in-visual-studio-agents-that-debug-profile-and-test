@@ -51,4 +51,39 @@ public class OrderBatchProcessorTests
         foreach (var r in results.Where(r => r.Success))
             Assert.True(r.FinalTotal > 0);
     }
+
+    // Regression tests for GitHub issue #1:
+    // "Nightly fulfilment pipeline is missing last orders"
+    // Root cause: loop condition `orders.Count - 1` skips the final order in every batch.
+
+    [Fact]
+    public void ProcessBatch_SingleOrder_ReturnsOneResult()
+    {
+        // Reported symptom: "1 order had been submitted, but none were processed"
+        var orders = new List<Order> { MakeOrder(1) };
+        var results = _processor.ProcessBatch(orders);
+
+        Assert.Equal(1, results.Count);
+    }
+
+    [Fact]
+    public void ProcessBatch_FiveOrders_ReturnsAllFiveResults()
+    {
+        // Reported symptom: "a batch of 5 orders results in only 4 being processed"
+        var orders = Enumerable.Range(1, 5).Select(i => MakeOrder(i)).ToList();
+        var results = _processor.ProcessBatch(orders);
+
+        Assert.Equal(5, results.Count);
+    }
+
+    [Fact]
+    public void ProcessBatch_LastOrderIsIncluded()
+    {
+        // Verifies the last order in the batch is not silently dropped
+        var lastOrder = MakeOrder(99);
+        var orders = new List<Order> { MakeOrder(1), MakeOrder(2), lastOrder };
+        var results = _processor.ProcessBatch(orders);
+
+        Assert.Contains(results, r => r.OrderId == lastOrder.Id);
+    }
 }

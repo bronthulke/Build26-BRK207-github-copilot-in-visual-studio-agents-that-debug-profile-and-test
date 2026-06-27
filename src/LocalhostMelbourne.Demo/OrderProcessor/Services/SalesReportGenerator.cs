@@ -22,46 +22,57 @@ public class SalesReportGenerator
     //   Each iterates the full collection. Collapse into a single aggregation pass.
     public string GenerateDetailedReport(IList<Order> orders, IList<Product> productCatalog)
     {
-        // BUG 1: string concatenation — should use StringBuilder
-        string report = "=== SALES REPORT ===\n";
-        report += $"Generated: {DateTime.UtcNow:O}\n";
-        report += $"Orders included: {orders.Count}\n\n";
+        // FIX 1: StringBuilder eliminates O(N²) string allocations in the order loop
+        var sb = new StringBuilder();
+
+        // FIX 2: Pre-build a dictionary for O(1) lookups instead of O(M) linear scan per item
+        var productLookup = productCatalog.ToDictionary(p => p.Id);
+
+        sb.Append("=== SALES REPORT ===\n");
+        sb.Append($"Generated: {DateTime.UtcNow:O}\n");
+        sb.Append($"Orders included: {orders.Count}\n\n");
+
+        // FIX 3: Single-pass aggregation instead of three separate LINQ iterations
+        decimal totalRevenue = 0m;
+        int activeOrders = 0;
+        decimal totalForAverage = 0m;
 
         foreach (var order in orders)
         {
-            report += $"Order #{order.Id,10} | {order.OrderDate:yyyy-MM-dd} | " +
-                      $"Customer: {order.CustomerId,-12} | Status: {order.Status}\n";
+            sb.Append($"Order #{order.Id,10} | {order.OrderDate:yyyy-MM-dd} | " +
+                      $"Customer: {order.CustomerId,-12} | Status: {order.Status}\n");
 
             foreach (var item in order.Items)
             {
-                // BUG 2: O(M) scan inside a nested loop — should use a pre-built lookup dictionary
-                var product = productCatalog.Where(p => p.Id == item.ProductId).FirstOrDefault();
+                productLookup.TryGetValue(item.ProductId, out var product);
                 string sku = product?.Sku ?? "N/A";
 
-                report += $"  - {item.ProductName,-30} (SKU: {sku,-12}) " +
-                          $"x{item.Quantity,3} @ ${item.UnitPrice,8:F2}  =  ${item.LineTotal,9:F2}\n";
+                sb.Append($"  - {item.ProductName,-30} (SKU: {sku,-12}) " +
+                          $"x{item.Quantity,3} @ ${item.UnitPrice,8:F2}  =  ${item.LineTotal,9:F2}\n");
             }
 
-            report += $"  {"",46}SubTotal:  ${order.SubTotal,9:F2}\n";
-            report += $"  {"",46}Discount: -${order.DiscountAmount,9:F2}\n";
-            report += $"  {"",46}Tax:       ${order.TaxAmount,9:F2}\n";
-            report += $"  {"",46}TOTAL:     ${order.Total,9:F2}\n\n";
+            sb.Append($"  {"",46}SubTotal:  ${order.SubTotal,9:F2}\n");
+            sb.Append($"  {"",46}Discount: -${order.DiscountAmount,9:F2}\n");
+            sb.Append($"  {"",46}Tax:       ${order.TaxAmount,9:F2}\n");
+            sb.Append($"  {"",46}TOTAL:     ${order.Total,9:F2}\n\n");
+
+            totalRevenue += order.Total;
+            if (order.Status != OrderStatus.Cancelled)
+            {
+                activeOrders++;
+                totalForAverage += order.Total;
+            }
         }
 
-        // BUG 3: three separate iterations — should aggregate in one pass
-        decimal totalRevenue = orders.Sum(o => o.Total);
-        int activeOrders = orders.Count(o => o.Status != OrderStatus.Cancelled);
-        decimal avgOrderValue = activeOrders > 0
-            ? orders.Where(o => o.Status != OrderStatus.Cancelled).Average(o => o.Total)
-            : 0m;
+        decimal avgOrderValue = activeOrders > 0 ? totalForAverage / activeOrders : 0m;
 
-        report += "--- SUMMARY ---\n";
-        report += $"Total Orders Processed : {orders.Count}\n";
-        report += $"Active Orders          : {activeOrders}\n";
-        report += $"Total Revenue          : ${totalRevenue:F2}\n";
-        report += $"Average Order Value    : ${avgOrderValue:F2}\n";
+        sb.Append("--- SUMMARY ---\n");
+        sb.Append($"Total Orders Processed : {orders.Count}\n");
+        sb.Append($"Active Orders          : {activeOrders}\n");
+        sb.Append($"Total Revenue          : ${totalRevenue:F2}\n");
+        sb.Append($"Average Order Value    : ${avgOrderValue:F2}\n");
 
-        return report;
+        return sb.ToString();
     }
 
     // Corrected implementation for reference (not used by the demo path)
