@@ -1,29 +1,28 @@
-# build26-repo-template
-
-Template files will not be tracked by git.
-*.bak
-*.tmp
-
-# Source materials folder — contents excluded, README tracked
-_remove-before-publish/*
-!_remove-before-publish/README.md
-
-# OS files
-.DS_Store
+# git-ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+*.suo
+*.csproj.user
+*.Publish.xml
+*.pubxml.user
+*.pubxml*
+Output-Build.txt
+obj
+bin
+.vs/
+packages
 Thumbs.db
+.DS_Store
+*.DS_Store
+*.user
+node_modules
+.sass-cache
 
-# IDE files (except .vscode/mcp.json which we want)
-.idea/
-*.swp
-*.swo
+*/uploads/*
+*/logs/*
 
-# Environment files with secrets
-.env
-.env.local
-.env.*.local
+!NotEmpty.txt
 
-# Dependencies (if applicable)
-node_modules/
-__pycache__/
-*.pyc
-.venv/
