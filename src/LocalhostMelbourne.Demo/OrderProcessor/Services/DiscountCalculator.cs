@@ -22,9 +22,12 @@ public class DiscountCalculator
         [LoyaltyTier.Platinum] = 0.15m
     };
 
-    // SCENARIO 3 (TESTING) — BUG 1:
-    // Bundle discount spec: "Buy 3 or more units of the same item, get 10% off that line."
-    // Bug: condition uses > 3 instead of >= 3, so an order of exactly 3 units gets no discount.
+    /// <summary>
+    /// Calculates a bundle discount for orders with more than 3 items.
+    /// </summary>
+    /// <param name="quantity"></param>
+    /// <param name="unitPrice"></param>
+    /// <returns></returns>
     public decimal CalculateBundleDiscount(int quantity, decimal unitPrice)
     {
         if (quantity > 3)   // BUG: should be >= 3
@@ -33,10 +36,13 @@ public class DiscountCalculator
         return 0m;
     }
 
-    // SCENARIO 3 (TESTING) — BUG 2:
-    // Spec: both loyalty and promo discounts are calculated independently against the original subtotal,
-    // then summed. e.g. subtotal=$200, loyalty=10%, promo=10% → discount = $20 + $20 = $40.
-    // Bug: promo code is applied to the post-loyalty-discount remainder, which under-discounts.
+    /// <summary>
+    /// Calculates the total discount for an order based on loyalty tier and promo code.
+    /// </summary>
+    /// <param name="subtotal"></param>
+    /// <param name="tier"></param>
+    /// <param name="promoCode"></param>
+    /// <returns></returns>
     public OrderDiscount CalculateTotalDiscount(decimal subtotal, LoyaltyTier tier, string? promoCode)
     {
         decimal loyaltyRate = LoyaltyRates[tier];
@@ -54,9 +60,14 @@ public class DiscountCalculator
         };
     }
 
-    // SCENARIO 3 (TESTING) — BUG 3:
-    // Spec: tax (GST) is calculated on the original subtotal before discounts.
-    // Bug: tax is calculated on (subtotal - discount), which under-charges tax.
+
+    /// <summary>
+    /// Calculates the tax for an order based on subtotal, discount amount, and tax rate.
+    /// </summary>
+    /// <param name="subtotal"></param>
+    /// <param name="discountAmount"></param>
+    /// <param name="taxRate"></param>
+    /// <returns></returns>
     public decimal CalculateTax(decimal subtotal, decimal discountAmount, decimal taxRate = 0.10m)
     {
         return (subtotal - discountAmount) * taxRate;   // BUG: should be subtotal * taxRate
