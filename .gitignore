@@ -24,5 +24,7 @@ node_modules
 */uploads/*
 */logs/*
 
+TestResults/
+
 !NotEmpty.txt
 
