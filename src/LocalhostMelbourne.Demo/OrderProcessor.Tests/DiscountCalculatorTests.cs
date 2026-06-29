@@ -4,14 +4,6 @@ using Xunit;
 
 namespace OrderProcessor.Tests;
 
-/// <summary>
-/// SCENARIO 3 (TESTING): These tests define the correct behaviour of DiscountCalculator.
-/// Several tests are EXPECTED TO FAIL because the implementation contains deliberate bugs.
-/// Use GitHub Copilot to investigate the failures and identify the root cause.
-///
-/// Copilot prompt: "Some of these tests are failing. Investigate the failures and explain
-/// what is wrong in DiscountCalculator, then suggest the minimal code change to fix each bug."
-/// </summary>
 public class DiscountCalculatorTests
 {
     private readonly DiscountCalculator _calc = new();
@@ -34,7 +26,7 @@ public class DiscountCalculatorTests
         Assert.Equal(0m, result);
     }
 
-    [Fact]  // FAILS: bug uses > 3 instead of >= 3; qty=3 returns 0 instead of $30
+    [Fact]
     public void BundleDiscount_TenPercentForExactlyThreeUnits()
     {
         decimal result = _calc.CalculateBundleDiscount(3, 100m);
@@ -77,25 +69,25 @@ public class DiscountCalculatorTests
         Assert.Equal(10m, discount.TotalDiscount);
     }
 
-    [Fact]  // FAILS: promo is applied to (subtotal - loyaltyDiscount) instead of subtotal
+    [Fact]
     public void TotalDiscount_GoldLoyaltyPlusSave10Promo()
     {
         // Gold = 10%; SAVE10 = 10%; both applied to $200 original subtotal independently
         // Expected: loyalty=$20, promo=$20, total=$40
         var discount = _calc.CalculateTotalDiscount(200m, LoyaltyTier.Gold, "SAVE10");
         Assert.Equal(20m, discount.LoyaltyDiscount);
-        Assert.Equal(20m, discount.PromoDiscount);      // BUG returns $18 (10% of $180)
+        Assert.Equal(20m, discount.PromoDiscount);
         Assert.Equal(40m, discount.TotalDiscount);
     }
 
-    [Fact]  // FAILS: same stacking bug with SAVE20
+    [Fact]
     public void TotalDiscount_PlatinumPlusSave20Promo()
     {
         // Platinum = 15%; SAVE20 = 20%; on $1000 subtotal
         // Expected: loyalty=$150, promo=$200, total=$350
         var discount = _calc.CalculateTotalDiscount(1000m, LoyaltyTier.Platinum, "SAVE20");
         Assert.Equal(150m, discount.LoyaltyDiscount);
-        Assert.Equal(200m, discount.PromoDiscount);     // BUG returns $170 (20% of $850)
+        Assert.Equal(200m, discount.PromoDiscount);
         Assert.Equal(350m, discount.TotalDiscount);
     }
 
@@ -116,21 +108,21 @@ public class DiscountCalculatorTests
     {
         // $200 subtotal, $40 discount → tax should be 10% of $200 = $20
         decimal tax = _calc.CalculateTax(200m, 40m);
-        Assert.Equal(20m, tax);   // BUG returns $16 (10% of $160)
+        Assert.Equal(20m, tax);
     }
 
     [Fact]  // FAILS: same issue
     public void Tax_NoDiscountStillCorrect()
     {
         decimal tax = _calc.CalculateTax(500m, 0m);
-        Assert.Equal(50m, tax);   // 10% of $500; passes (discount=0 hides the bug)
+        Assert.Equal(50m, tax);
     }
 
-    [Fact]  // FAILS: the bug only shows when discount > 0
+    [Fact]
     public void Tax_LargeDiscountDoesNotReduceTaxBase()
     {
         // $1000 subtotal, $300 discount → tax must still be $100 (10% of subtotal)
         decimal tax = _calc.CalculateTax(1000m, 300m);
-        Assert.Equal(100m, tax);  // BUG returns $70 (10% of $700)
+        Assert.Equal(100m, tax);
     }
 }

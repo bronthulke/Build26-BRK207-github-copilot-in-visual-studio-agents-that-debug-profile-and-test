@@ -8,21 +8,14 @@ namespace OrderProcessor.Services;
 /// </summary>
 public class SalesReportGenerator
 {
-    // SCENARIO 2 (PROFILING) — THREE PERFORMANCE BUGS:
-    //
-    // Bug 1 (line ~40): String concatenation inside a loop. For N orders this allocates
-    //   O(N²) bytes of intermediate strings. Use StringBuilder instead.
-    //
-    // Bug 2 (line ~47): Linear scan of productCatalog inside a nested loop.
-    //   Where(p => p.Id == item.ProductId) is O(M) per item; with K items per order
-    //   across N orders the total cost is O(N × K × M). Build a Dictionary<string, Product>
-    //   once before the loop for O(1) lookups.
-    //
-    // Bug 3 (lines ~61–63): Three separate LINQ passes over `orders` for Sum, Count, and Average.
-    //   Each iterates the full collection. Collapse into a single aggregation pass.
+    /// <summary>
+    /// Generates a detailed sales report for the given orders and product catalog.
+    /// </summary>
+    /// <param name="orders"></param>
+    /// <param name="productCatalog"></param>
+    /// <returns></returns>
     public string GenerateDetailedReport(IList<Order> orders, IList<Product> productCatalog)
     {
-        // BUG 1: string concatenation — should use StringBuilder
         string report = "=== SALES REPORT ===\n";
         report += $"Generated: {DateTime.UtcNow:O}\n";
         report += $"Orders included: {orders.Count}\n\n";
@@ -34,7 +27,6 @@ public class SalesReportGenerator
 
             foreach (var item in order.Items)
             {
-                // BUG 2: O(M) scan inside a nested loop — should use a pre-built lookup dictionary
                 var product = productCatalog.Where(p => p.Id == item.ProductId).FirstOrDefault();
                 string sku = product?.Sku ?? "N/A";
 
@@ -48,7 +40,6 @@ public class SalesReportGenerator
             report += $"  {"",46}TOTAL:     ${order.Total,9:F2}\n\n";
         }
 
-        // BUG 3: three separate iterations — should aggregate in one pass
         decimal totalRevenue = orders.Sum(o => o.Total);
         int activeOrders = orders.Count(o => o.Status != OrderStatus.Cancelled);
         decimal avgOrderValue = activeOrders > 0
@@ -64,7 +55,6 @@ public class SalesReportGenerator
         return report;
     }
 
-    // Corrected implementation for reference (not used by the demo path)
     public string GenerateDetailedReportOptimized(IList<Order> orders, IList<Product> productCatalog)
     {
         var sb = new StringBuilder();

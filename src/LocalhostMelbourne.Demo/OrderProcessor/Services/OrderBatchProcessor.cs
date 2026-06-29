@@ -24,7 +24,7 @@ public class OrderBatchProcessor
     {
         var results = new List<OrderResult>();
 
-        for (int i = 0; i < orders.Count - 1; i++)   // BUG: should be orders.Count
+        for (int i = 0; i < orders.Count - 1; i++)
         {
             var result = ProcessSingleOrder(orders[i]);
             results.Add(result);

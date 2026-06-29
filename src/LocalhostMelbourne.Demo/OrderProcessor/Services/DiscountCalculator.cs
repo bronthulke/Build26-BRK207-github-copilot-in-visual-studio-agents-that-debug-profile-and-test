@@ -16,9 +16,9 @@ public class DiscountCalculator
 
     public static readonly Dictionary<LoyaltyTier, decimal> LoyaltyRates = new()
     {
-        [LoyaltyTier.Bronze]   = 0.00m,
-        [LoyaltyTier.Silver]   = 0.05m,
-        [LoyaltyTier.Gold]     = 0.10m,
+        [LoyaltyTier.Bronze] = 0.00m,
+        [LoyaltyTier.Silver] = 0.05m,
+        [LoyaltyTier.Gold] = 0.10m,
         [LoyaltyTier.Platinum] = 0.15m
     };
 
@@ -30,7 +30,7 @@ public class DiscountCalculator
     /// <returns></returns>
     public decimal CalculateBundleDiscount(int quantity, decimal unitPrice)
     {
-        if (quantity > 3)   // BUG: should be >= 3
+        if (quantity > 3)
             return quantity * unitPrice * 0.10m;
 
         return 0m;
@@ -48,10 +48,10 @@ public class DiscountCalculator
         decimal loyaltyRate = LoyaltyRates[tier];
         decimal loyaltyDiscount = subtotal * loyaltyRate;
 
-        decimal remainingAfterLoyalty = subtotal - loyaltyDiscount;   // BUG: promo should use subtotal, not remainder
+        decimal remainingAfterLoyalty = subtotal - loyaltyDiscount;
 
         decimal promoRate = promoCode != null && _promoCodes.TryGetValue(promoCode, out var rate) ? rate : 0m;
-        decimal promoDiscount = remainingAfterLoyalty * promoRate;   // BUG: should be subtotal * promoRate
+        decimal promoDiscount = remainingAfterLoyalty * promoRate;
 
         return new OrderDiscount
         {
@@ -70,6 +70,6 @@ public class DiscountCalculator
     /// <returns></returns>
     public decimal CalculateTax(decimal subtotal, decimal discountAmount, decimal taxRate = 0.10m)
     {
-        return (subtotal - discountAmount) * taxRate;   // BUG: should be subtotal * taxRate
+        return (subtotal - discountAmount) * taxRate;
     }
 }
